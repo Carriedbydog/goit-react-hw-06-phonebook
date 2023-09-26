@@ -10,14 +10,6 @@ export const App = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.contacts.contacts);
   const filter = useSelector(state => state.contacts.filter);
-  // const [contacts, setContacts] = useState(
-  //   JSON.parse(window.localStorage.getItem('contacts')) || []
-  // );
-  // const [filter, setFilter] = useState('');
-
-  // useEffect(() => {
-  //   window.localStorage.setItem('contacts', JSON.stringify(contacts));
-  // }, [contacts]);
 
   const handleAddContact = (name, number) => {
     const item = contacts.find(
@@ -35,12 +27,10 @@ export const App = () => {
       id: nanoid(),
     };
 
-    // setContacts(prev => [...prev, contact]);
     dispatch(addContact(contact));
   };
 
   const handleChangeFilter = e => {
-    // setFilter(e.target.value);
     dispatch(setFilter(e.target.value));
   };
   const filterContacts = () => {
@@ -50,7 +40,6 @@ export const App = () => {
     );
   };
   const handleContactDelete = id => {
-    // setContacts(prev => prev.filter(contact => contact.id !== id));
     dispatch(deleteContact(id));
   };
   return (
