@@ -5,11 +5,12 @@ import { StyledSubTitle, StyledTitle, StyledWrapper } from 'styles/App.styled';
 import { Form } from './ContactForm/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact, deleteContact, setFilter } from 'redux/phonebook/slice';
+import { selectContacts, selectFilter } from 'redux/phonebook/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.contacts);
-  const filter = useSelector(state => state.contacts.filter);
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
 
   const handleAddContact = (name, number) => {
     const item = contacts.find(
